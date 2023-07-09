@@ -1,0 +1,6 @@
+C:\Users\mdagr\Documents\InterviewStuff\NationalLabAssignment\AIST_ProgrammingTest\ForceSensorLibrary\ForceSensorLibrary\ForceSensorLibrary\obj\Debug\ForceSensorLibrary.csproj.AssemblyReference.cache
+C:\Users\mdagr\Documents\InterviewStuff\NationalLabAssignment\AIST_ProgrammingTest\ForceSensorLibrary\ForceSensorLibrary\ForceSensorLibrary\obj\Debug\ForceSensorLibrary.csproj.CoreCompileInputs.cache
+C:\Users\mdagr\Documents\InterviewStuff\NationalLabAssignment\AIST_ProgrammingTest\ForceSensorLibrary\ForceSensorLibrary\ForceSensorLibrary\bin\Debug\ForceSensorLibrary.dll
+C:\Users\mdagr\Documents\InterviewStuff\NationalLabAssignment\AIST_ProgrammingTest\ForceSensorLibrary\ForceSensorLibrary\ForceSensorLibrary\bin\Debug\ForceSensorLibrary.pdb
+C:\Users\mdagr\Documents\InterviewStuff\NationalLabAssignment\AIST_ProgrammingTest\ForceSensorLibrary\ForceSensorLibrary\ForceSensorLibrary\obj\Debug\ForceSensorLibrary.dll
+C:\Users\mdagr\Documents\InterviewStuff\NationalLabAssignment\AIST_ProgrammingTest\ForceSensorLibrary\ForceSensorLibrary\ForceSensorLibrary\obj\Debug\ForceSensorLibrary.pdb

@@ -70,6 +70,54 @@ public partial class @LeftRightInputMappings: IInputActionCollection2, IDisposab
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""OpenCloseInputMap"",
+            ""id"": ""6cfb52f9-2d22-4c46-ade1-ceea71db5ad0"",
+            ""actions"": [
+                {
+                    ""name"": ""Open"",
+                    ""type"": ""Button"",
+                    ""id"": ""2471a113-a0d1-4dad-92ca-89ae327e7a94"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Close"",
+                    ""type"": ""Button"",
+                    ""id"": ""e71853c6-d732-496b-a21f-b793b2994a0a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a65d2c7e-9b8e-4589-9548-67ddb3c084c1"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""598f7c53-111d-4d11-9012-e280a04d97fa"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Close"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -78,6 +126,10 @@ public partial class @LeftRightInputMappings: IInputActionCollection2, IDisposab
         m_LeftRightInputMap = asset.FindActionMap("LeftRightInputMap", throwIfNotFound: true);
         m_LeftRightInputMap_LeftAction = m_LeftRightInputMap.FindAction("LeftAction", throwIfNotFound: true);
         m_LeftRightInputMap_RightAction = m_LeftRightInputMap.FindAction("RightAction", throwIfNotFound: true);
+        // OpenCloseInputMap
+        m_OpenCloseInputMap = asset.FindActionMap("OpenCloseInputMap", throwIfNotFound: true);
+        m_OpenCloseInputMap_Open = m_OpenCloseInputMap.FindAction("Open", throwIfNotFound: true);
+        m_OpenCloseInputMap_Close = m_OpenCloseInputMap.FindAction("Close", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -189,9 +241,68 @@ public partial class @LeftRightInputMappings: IInputActionCollection2, IDisposab
         }
     }
     public LeftRightInputMapActions @LeftRightInputMap => new LeftRightInputMapActions(this);
+
+    // OpenCloseInputMap
+    private readonly InputActionMap m_OpenCloseInputMap;
+    private List<IOpenCloseInputMapActions> m_OpenCloseInputMapActionsCallbackInterfaces = new List<IOpenCloseInputMapActions>();
+    private readonly InputAction m_OpenCloseInputMap_Open;
+    private readonly InputAction m_OpenCloseInputMap_Close;
+    public struct OpenCloseInputMapActions
+    {
+        private @LeftRightInputMappings m_Wrapper;
+        public OpenCloseInputMapActions(@LeftRightInputMappings wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Open => m_Wrapper.m_OpenCloseInputMap_Open;
+        public InputAction @Close => m_Wrapper.m_OpenCloseInputMap_Close;
+        public InputActionMap Get() { return m_Wrapper.m_OpenCloseInputMap; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OpenCloseInputMapActions set) { return set.Get(); }
+        public void AddCallbacks(IOpenCloseInputMapActions instance)
+        {
+            if (instance == null || m_Wrapper.m_OpenCloseInputMapActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_OpenCloseInputMapActionsCallbackInterfaces.Add(instance);
+            @Open.started += instance.OnOpen;
+            @Open.performed += instance.OnOpen;
+            @Open.canceled += instance.OnOpen;
+            @Close.started += instance.OnClose;
+            @Close.performed += instance.OnClose;
+            @Close.canceled += instance.OnClose;
+        }
+
+        private void UnregisterCallbacks(IOpenCloseInputMapActions instance)
+        {
+            @Open.started -= instance.OnOpen;
+            @Open.performed -= instance.OnOpen;
+            @Open.canceled -= instance.OnOpen;
+            @Close.started -= instance.OnClose;
+            @Close.performed -= instance.OnClose;
+            @Close.canceled -= instance.OnClose;
+        }
+
+        public void RemoveCallbacks(IOpenCloseInputMapActions instance)
+        {
+            if (m_Wrapper.m_OpenCloseInputMapActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IOpenCloseInputMapActions instance)
+        {
+            foreach (var item in m_Wrapper.m_OpenCloseInputMapActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_OpenCloseInputMapActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public OpenCloseInputMapActions @OpenCloseInputMap => new OpenCloseInputMapActions(this);
     public interface ILeftRightInputMapActions
     {
         void OnLeftAction(InputAction.CallbackContext context);
         void OnRightAction(InputAction.CallbackContext context);
+    }
+    public interface IOpenCloseInputMapActions
+    {
+        void OnOpen(InputAction.CallbackContext context);
+        void OnClose(InputAction.CallbackContext context);
     }
 }

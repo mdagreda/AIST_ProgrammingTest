@@ -1,5 +1,5 @@
 {
-    "name": "Test2InputMappings",
+    "name": "LeftRightInputMappings",
     "maps": [
         {
             "name": "LeftRightInputMap",
@@ -44,6 +44,54 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "OpenCloseInputMap",
+            "id": "6cfb52f9-2d22-4c46-ade1-ceea71db5ad0",
+            "actions": [
+                {
+                    "name": "Open",
+                    "type": "Button",
+                    "id": "2471a113-a0d1-4dad-92ca-89ae327e7a94",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Close",
+                    "type": "Button",
+                    "id": "e71853c6-d732-496b-a21f-b793b2994a0a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "a65d2c7e-9b8e-4589-9548-67ddb3c084c1",
+                    "path": "<Keyboard>/o",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "598f7c53-111d-4d11-9012-e280a04d97fa",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Close",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

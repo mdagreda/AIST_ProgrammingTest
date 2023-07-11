@@ -1,0 +1,54 @@
+{
+    "name": "Test2InputMappings",
+    "maps": [
+        {
+            "name": "LeftRightInputMap",
+            "id": "8166e45e-d8da-4a76-a3f3-4f097dbd219f",
+            "actions": [
+                {
+                    "name": "LeftAction",
+                    "type": "Button",
+                    "id": "18b2d178-0af6-42d0-9d79-dcfff506ee72",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RightAction",
+                    "type": "Button",
+                    "id": "d0852c9a-3da3-49e1-8848-e34a3efa98f0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b06bf0a6-f874-437d-9bdf-cfaf454fcd73",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ec4e359a-e170-461d-b905-126625820591",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -21,3 +21,4 @@ MonoBehaviour:
   maxOrintations: {x: 180, y: 180, z: 180}
   lowForceColor: {r: 0, g: 1, b: 0, a: 0.6666667}
   highForceColor: {r: 1, g: 0, b: 0, a: 0.6666667}
+  useForceDirection: 1
